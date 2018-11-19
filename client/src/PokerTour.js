@@ -18,7 +18,6 @@ class PokerTour extends Component {
     this.handleEditChange = this.handleEditChange.bind(this);
     this.handleAddChange = this.handleAddChange.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
-    this.deleteFromDB = this.deleteFromDB.bind(this);
     this.state = {
       data: [],
       update: {},
@@ -39,13 +38,13 @@ class PokerTour extends Component {
 
   getPlayers() {
     fetch("/api/getData")
-    .then(data => data.json())
-    .then(res => {
-      const sortedData = res.data.sort((a, b) => {
-        return b.winnings - a.winnings;
+      .then(data => data.json())
+      .then(res => {
+        const sortedData = res.data.sort((a, b) => {
+          return b.winnings - a.winnings;
+        });
+        this.setState({ data: sortedData });
       });
-      this.setState({ data: sortedData });
-    });
   }
 
   addPlayer() {
@@ -157,12 +156,6 @@ class PokerTour extends Component {
       );
     }
 
-    // REMOVE
-    if (false) {
-      return <button onClick={this.deleteFromDB}>Delete Player</button>;
-    }
-    // REMOVE
-
     return (
       <React.Fragment>
         <button onClick={() => this.setState({ action: 'adding'})}>Add Player</button>
@@ -234,14 +227,6 @@ class PokerTour extends Component {
       default:
         break;
     }
-  }
-
-  deleteFromDB() {
-    axios.delete("/api/deleteData", {
-      data: {
-        id: "5bf19801041845176a9a5d28"
-      }
-    });
   }
 
   render() {
