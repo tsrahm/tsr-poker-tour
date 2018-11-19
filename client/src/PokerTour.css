@@ -1,0 +1,110 @@
+header {
+  background-color: #333;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.poker-grid {
+  width: 625px;
+  margin: 25px auto;
+  display: grid;
+  grid-auto-rows: minmax(30px, auto);
+}
+
+.heading-row {
+  background-color: #ddd;
+  color: #282c34;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.heading-row, .player-row {
+  display: grid;
+  grid-template-columns: 20px 2fr 1fr 1fr;
+  align-items: center;
+  height: 30px;
+  padding-left: 5px;
+}
+
+.player-heading {
+  grid-column: 1 / span 2;
+}
+
+.player-row {
+  border-bottom: 2px solid #ddd;
+}
+
+.player-row:hover {
+  cursor: pointer;
+}
+
+.player-row input[name="lastName"] {
+  margin-left: 4px;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 5px;
+}
+
+.button-row > button {
+  margin-top: 15px;
+}
+
+.edit-message {
+  justify-self: end;
+  align-self: start;
+  margin-right: 5px;
+}
+
+.add-player-row {
+  margin-top: 25px;
+  padding: 0 0 20px 4px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+}
+
+.add-player-row > input {
+  margin-left: 6px;
+}
+
+input {
+  width: 140px;
+  height: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: red;
+}
+
+img {
+  height: 10px;
+  width: 15px;
+}
+
+button {
+  width: 150px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  background-color: lightsteelblue;
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+button:nth-of-type(2) {
+  justify-self: end;
+}
+
+h2 {
+  margin-left: 6px;
+  font-size: 20px;
+}
