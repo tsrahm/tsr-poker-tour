@@ -39,13 +39,13 @@ class PokerTour extends Component {
 
   getPlayers() {
     fetch("/api/getData")
-      .then(data => data.json())
-      .then(res => {
-        const sortedData = res.data.sort((a, b) => {
-          return b.winnings - a.winnings;
-        });
-        this.setState({ data: sortedData });
+    .then(data => data.json())
+    .then(res => {
+      const sortedData = res.data.sort((a, b) => {
+        return b.winnings - a.winnings;
       });
+      this.setState({ data: sortedData });
+    });
   }
 
   addPlayer() {
