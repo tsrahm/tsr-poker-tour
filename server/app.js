@@ -67,7 +67,6 @@ router.post("/addData", (req, res) => {
   const { firstName, lastName, winnings = 0, country } = req.body;
 
   if (!firstName || !lastName || !country) {
-    console.log('problem');
     return res.status(400).send({message: 'Invalid Inputs'});
   }
 
@@ -77,7 +76,6 @@ router.post("/addData", (req, res) => {
   data.country = country;
 
   data.save(err => {
-    console.log('POST', err);
     if (err) return res.json({ status: 500, error: err });
     return res.json({ status: 200 });
   });
