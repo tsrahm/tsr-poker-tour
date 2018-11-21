@@ -98,6 +98,10 @@ class PokerTour extends Component {
           altText = 'World Flag'
       }
 
+      const winnings = player.winnings >= 1000 ?
+        `${((player.winnings / 100).toFixed(0)) / 10}T` :
+        `${((player.winnings * 10).toFixed(0)) / 10}M`;
+
       return (
         <div className="player-row" onClick={() => this.setState({ idToUpdate: player._id, action: 'editing' })} key={player._id}>
           <span>{++index}.</span>
@@ -107,7 +111,7 @@ class PokerTour extends Component {
             &nbsp;
             <span>{player.lastName}</span>
           </div>
-          <div>${player.winnings}M</div>
+          <div>${winnings}</div>
           <div><img alt={altText} src={flag} />&nbsp;{player.country}</div>
         </div>
       );
